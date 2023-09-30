@@ -16,3 +16,10 @@ example:
       }
 
 remember to use this option, your class need to extend Controller class.
+
+you can also access 3 path like below:
+
+      $this->Helper->view //view folder
+      $this->Helper->path //controller folder
+      $this->Helper->uri //REQUEST_URI
+      $this->Helper->method //REQUEST_METHOD
