@@ -15,4 +15,4 @@ example:
           }
       }
 
-remeber to use this option your class need to extend Controller class.
+remember to use this option, your class need to extend Controller class.
