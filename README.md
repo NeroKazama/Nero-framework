@@ -1,6 +1,6 @@
 # Nero-framework
 
-Just Started to created my own mini framework to understand php in deep level.
+Just Started to created my own mini framework to better understand php in deep level.
 
 Autoload is working and created a routing system for MVC pattern.
 
