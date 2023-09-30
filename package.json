@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "dev": "webpack --config build/config.development.js",
+    "prod": "webpack --config build/config.production.js"
+  },
+  "devDependencies": {
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-merge": "^5.9.0"
+  },
+  "dependencies": {
+    "css-loader": "^6.8.1",
+    "style-loader": "^3.3.3"
+  }
+}
