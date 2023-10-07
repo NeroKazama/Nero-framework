@@ -1,3 +1,6 @@
-body {
-    background-color: aqua !important;
-}
+@import url("./bootstrap.min.css"); 
+@import url("./all.min.css"); 
+
+.text-shadow-dark {
+    text-shadow: 2px 2px 8px #303030;
+  }

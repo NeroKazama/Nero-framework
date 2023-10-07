@@ -18,7 +18,7 @@ class MainHelper
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
-    public function View(string $path, ...$params): void
+    public function View(string $path, ...$params, $layuot = true): void
     {
 
         if (!empty($params)) {
@@ -27,7 +27,12 @@ class MainHelper
             }
         }
 
-        include($this->view . $path);
+        if($layuot == false ) {
+            include($this->view . $this->view . $path);
+        }
+
+        $page = $this->view . $path;
+        include($this->view . '/app/app.php');
     }
 
     public function errorView($error): void
