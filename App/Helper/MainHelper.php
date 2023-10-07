@@ -18,21 +18,26 @@ class MainHelper
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
-    public function View(string $path, ...$params, $layuot = true): void
+    public function View(string $path, ...$params): void
     {
 
         if (!empty($params)) {
-            foreach ($params[0] as $key => $value) {
+
+            $lastitem = array_key_last($params);            
+
+            foreach ($params as $key => $value) {
                 ${$key} = $value;
             }
-        }
 
-        if($layuot == false ) {
-            include($this->view . $this->view . $path);
+            if ($params[0][$lastitem] === false) {
+                include($this->view . $path);
+                return;
+            }
         }
 
         $page = $this->view . $path;
         include($this->view . '/app/app.php');
+        return;
     }
 
     public function errorView($error): void
