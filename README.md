@@ -16,6 +16,7 @@ example:
       }
 
 when you are using this function your page is going to be inside app.php inside app folder in views. to stop this function just send false as an second variable like this:
+       
        $this->Helper->View('home.php', false);
 
 remember to use this option, your class need to extend Controller class.
