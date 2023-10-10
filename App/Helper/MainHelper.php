@@ -21,23 +21,18 @@ class MainHelper
     public function View(string $path, ...$params): void
     {
         
-        $layout = true;
         if (!empty($params)) {
-            $last_key = array_key_last($params[0]);
 
-            foreach ($params[0] as $key => $value) {
-                if ($key == $last_key) {
-                    if($value == false) {
-                        $layout = $value;
-                    }
-                } else {
-                    ${$key} = $value;
-                } 
+            $lastitem = array_key_last($params);            
+
+            foreach ($params as $key => $value) {
+                ${$key} = $value;
             }
-        }
-       
-        if($layout == false ) {
-            include($this->view . $path);
+
+            if ($params[0][$lastitem] === false) {
+                include($this->view . $path);
+                return;
+            }
         }
 
         $page = $this->view . $path;
