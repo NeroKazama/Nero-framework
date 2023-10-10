@@ -15,9 +15,15 @@ example:
           }
       }
 
+<<<<<<< HEAD
 when you are using this function your page is going to be inside app.php inside app folder in views. to stop this function just send false as last parameter like this:
        
        $this->Helper->View('home.php', ['item', 'item', false]);
+=======
+when you are using this function your page is going to be inside app.php inside app folder in views. to stop this function just send false last variable like this:
+
+       $this->Helper->View('home.php', [false]);
+>>>>>>> ver0.2
 
 remember to use this option, your class need to extend Controller class.
 

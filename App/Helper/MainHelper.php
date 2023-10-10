@@ -20,7 +20,7 @@ class MainHelper
 
     public function View(string $path, ...$params): void
     {
-
+        
         if (!empty($params)) {
 
             $lastitem = array_key_last($params);            
