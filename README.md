@@ -53,9 +53,5 @@ to your class and to use it:
       $email = $this->post('loginName');
       $email = $this->get('loginName');
 
-
-
-
-
 also some methods about auth system added but it's not complete yet.
 
