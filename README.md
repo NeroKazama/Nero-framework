@@ -31,7 +31,7 @@ you can also access 3 path like below:
 -----------------------------------------------------
 version 0.3
 
-added validation system,
+added validation system, and RequestHelper
 
 usage example:
 
@@ -43,6 +43,19 @@ usage example:
         ]);
 
 right now validation methods contains: email, string, int, confirmPassword, max, min and phone.
+
+RequestHelper is a trait which you can use to access post and get in a secure way, to use it first you need to add
+
+       use RequestHelper;
+            
+to your class and to use it:
+
+      $email = $this->post('loginName');
+      $email = $this->get('loginName');
+
+
+
+
 
 also some methods about auth system added but it's not complete yet.
 
