@@ -31,7 +31,7 @@ class Validators
         return [$this->error, $this->error_message];
     }
 
-    public function int(string $validators): array
+    public function int(int $validators): array
     {
         if (!is_int($validators)) {
             $this->error = false;
