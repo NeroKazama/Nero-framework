@@ -27,3 +27,22 @@ you can also access 3 path like below:
       $this->Helper->path //controller folder
       $this->Helper->uri //REQUEST_URI
       $this->Helper->method //REQUEST_METHOD
+
+-----------------------------------------------------
+version 0.3
+
+added validation system,
+
+usage example:
+
+        $validator = new Validation([
+            $email => ['email', 'string'],
+            $password => ['confirmPassword|'.$confirmPassword],
+            $number => ['max|1024', 'min|10', 'int'],
+            $phone => ['phone']
+        ]);
+
+right now validation methods contains: email, string, int, confirmPassword, max, min and phone.
+
+also some methods about auth system added but it's not complete yet.
+
