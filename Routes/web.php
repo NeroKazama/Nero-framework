@@ -10,6 +10,8 @@ $router->get('/', BaseController::class . '::show');
 
 $router->get('/login', AuthController::class . '::show');
 
+$router->post('/login', AuthController::class . '::login');
+
 $router->addNotFoundError(function () {
     echo "Error";
 });

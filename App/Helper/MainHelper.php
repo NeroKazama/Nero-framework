@@ -23,16 +23,17 @@ class MainHelper
         
         if (!empty($params)) {
 
-            $lastitem = array_key_last($params);            
+            $lastitem = array_key_last($params[0]);
 
-            foreach ($params as $key => $value) {
+            foreach ($params[0] as $key => $value) {
                 ${$key} = $value;
             }
-
+           
             if ($params[0][$lastitem] === false) {
                 include($this->view . $path);
                 return;
             }
+
         }
 
         $page = $this->view . $path;
@@ -42,6 +43,12 @@ class MainHelper
     public function errorView($error): void
     {
         include('Public/Views/404.php');
+    }
+
+    public function redirectback($error): void
+    {
+        header('Location: ' . $_SERVER['HTTP_REFERER']);
+        exit;
     }
 
 }

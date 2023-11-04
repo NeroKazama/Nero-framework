@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nero's Frame Work</title>
     <script src="/public/dist/scripts.js"></script>
+    <link rel="shortcut icon" href="#">
 </head>
 
 <body>
@@ -22,11 +23,19 @@
             </ul>
         </div>
     </nav>
+    <div class="col-12 d-flex justify-content-center">
+        <?php 
+            if(isset($errors)) {
+                foreach($errors as $error) {
+                    echo "<p> $error[0] </p>";
+                }
+            }
+        ?>
 
-    <?php 
+        <?php
         include($page);
-    ?>
-
+        ?>
+    </div>
 </body>
 
 </html>
