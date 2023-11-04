@@ -50,8 +50,8 @@ RequestHelper is a trait which you can use to access post and get in a secure wa
             
 to your class and to use it:
 
-      $email = $this->post('loginName');
-      $email = $this->get('loginName');
+      $email = $this->post('email');
+      $email = $this->get('email');
 
 also some methods about auth system added but it's not complete yet.
 
