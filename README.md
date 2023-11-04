@@ -42,6 +42,13 @@ usage example:
             $phone => ['phone']
         ]);
 
+after you can use getError() method to see if there is an error:
+
+        if(count($validator->getErrors()) > 0) {
+            $this->Helper->View('auth/login.php', ['errors' => $validator->getErrors(), 'layout' => true]);
+            exit;
+        }
+
 right now validation methods contains: email, string, int, confirmPassword, max, min and phone.
 
 RequestHelper is a trait which you can use to access post and get in a secure way, to use it first you need to add
@@ -52,6 +59,7 @@ to your class and to use it:
 
       $email = $this->post('email');
       $email = $this->get('email');
+
 
 also some methods about auth system added but it's not complete yet.
 
