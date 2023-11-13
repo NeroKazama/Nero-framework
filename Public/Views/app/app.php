@@ -23,11 +23,11 @@
             </ul>
         </div>
     </nav>
-    <div class="col-12 d-flex justify-content-center">
+    <div class="col-12 d-flex flex-wrap justify-content-center">
         <?php 
             if(isset($errors)) {
                 foreach($errors as $error) {
-                    echo "<p> $error[0] </p>";
+                    echo "<p class='w-100 alert alert-warning' role='alert'>$error[0] </p>";
                 }
             }
         ?>

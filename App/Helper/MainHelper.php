@@ -51,6 +51,13 @@ class MainHelper
         exit;
     }
 
+    public function passHash($pass): string
+    {
+        $pwd_peppered = hash_hmac("sha256", $pass, $_ENV['App_Hash']);
+        $pwd_hashed = password_hash($pwd_peppered, PASSWORD_ARGON2ID);
+        return $pwd_hashed;
+    }
+
 }
 
 ?>

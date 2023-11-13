@@ -2,11 +2,11 @@
 
 namespace App\Controllers\Auth;
 
-use App\Controllers\Controller;
 use App\Helper\RequestHelper;
+use App\Models\Auth;
 use App\Rules\Validation;
 
-class AuthController extends Controller {
+class AuthController extends Auth {
 
     use RequestHelper;
 
@@ -14,7 +14,7 @@ class AuthController extends Controller {
         $this->Helper->View('auth/login.php');
     }
 
-    public function login() {
+    public function signin() {
         
         $email = $this->post('loginName');
         $password = $this->post('loginPassword');
@@ -27,19 +27,31 @@ class AuthController extends Controller {
             $this->Helper->View('auth/login.php', ['errors' => $validator->getErrors(), 'layout' => true]);
             exit;
         }
-
-        // $this->auth->login($email, $password);
+       
+        // $this->userLogin($email, $password);
     }
 
-    // public function register(Request $request) {
+    public function register() {
 
-    //     $name = $request->name;
-    //     $username = $request->username;
-    //     $email = $request->email;
-    //     $password = $request->password;
-    //     $repeatPassword = $request->repeatPassword;
-    //     $agrement = $request->agrement;
+        $name = $this->post('registerUsername');
+        $email = $this->post('registerEmail');
+        $password = $this->post('registerPassword');
+        $repeatPassword = $this->post('registerRepeatPassword');
+        $agrement = $this->post('registerCheck');
 
-    //     $this->auth->login($name, $username, $email, $password, $repeatPassword, $agrement);
-    // }
+        $validator = new Validation([
+            $name => ['string'],
+            $email => ['email'],
+            $password => ['confirmPassword|'.$repeatPassword]
+        ]);
+
+        if(count($validator->getErrors()) > 0) {
+            $this->Helper->View('auth/login.php', ['errors' => $validator->getErrors(), 'layout' => true]);
+            exit;
+        }
+
+        $this->create($name, $email, $password);
+
+        $this->Helper->View('home.php');
+    }
 }

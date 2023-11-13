@@ -44,5 +44,30 @@ usage example:
 
 right now validation methods contains: email, string, int, confirmPassword, max, min and phone.
 
+RequestHelper is a trait which you can use to access post and get in a secure way, to use it first you need to add
+
+   use RequestHelper;
+
+to your class and to use it:
+
+  $email = $this->post('email');
+  $email = $this->get('email');
+
 also some methods about auth system added but it's not complete yet.
 
+---------------------------------------------------------
+version 0.4
+
+.env added and usable in all of the classes
+
+connection class is added and usable in all of the classes. example to use the connection
+
+        private $conn;
+
+        public function __construct() {
+            $this->conn = new Connection;
+            $this->conn = $this->conn->connect();
+        }
+
+
+Auth system added and user can now signup(sign in still not created)
